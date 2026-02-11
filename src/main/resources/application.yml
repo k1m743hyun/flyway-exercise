@@ -1,7 +1,9 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/flyway-study
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
+    #url: jdbc:mysql://localhost:3306/flyway-study
+    url: jdbc:postgresql://localhost:5432/flyway-study
     username: root
     password: root
   jpa:
@@ -9,3 +11,5 @@ spring:
       ddl-auto: validate
   flyway:
     enabled: true
+    #locations: classpath:db/migration/mysql
+    locations: classpath:db/migration/postgresql

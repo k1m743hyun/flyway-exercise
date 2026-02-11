@@ -1,14 +1,25 @@
 version: "3"
 
 services:
-  mysql-db:
-    image: mysql:8.0
+#  mysql-db:
+#    image: mysql:8.0
+#    volumes:
+#      - ./mysql:/var/lib/mysql
+#    ports:
+#      - 3306:3306
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_DATABASE: flyway-study
+#    platform: linux/x86_64
+#    user: mysql
+  postgres-db:
+    image: postgres:15-alpine
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./postgres-data:/var/lib/postgresql/data
     ports:
-      - 3306:3306
+      - 5432:5432
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: flyway-study
-    platform: linux/x86_64
-    user: mysql
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: flyway-study
+      platform: linux/x86_64  # Apple Silicon 환경에서 필요할 경우 주석을 해제하세요.
